@@ -5,6 +5,9 @@
  */
 package com.mehmet.webservice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -59,6 +62,20 @@ public class GenericResource {
 		customer.setPin(pin);
 
 		return customer;
+
+	}
+    @GET
+	@Path("customers/{pin}") //or /{pin}
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Customer> getCustomerInJson(@PathParam("pin") int pin) {
+    	List<Customer> cus=new ArrayList<>();
+    	for (int i = 1; i <= pin; i++) {
+    		Customer customer = new Customer();
+    		customer.setName("mehmet");
+    		customer.setPin(i);
+    		cus.add(customer);
+		}  
+		return cus;
 
 	}
     /**
