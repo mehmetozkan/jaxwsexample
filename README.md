@@ -1,2 +1,2 @@
-# jaxwsexample
+# jaxrsexample
 JAX-RS Example
